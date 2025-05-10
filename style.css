@@ -1,0 +1,168 @@
+body {
+  background-image: url("/6507881_37924.jpg");
+  background-size: cover;        /* Ajusta la imagen para cubrir toda la pantalla */
+  background-repeat: no-repeat;  /* Evita que se repita */
+  background-position: center;   /* Centra la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 90vw;
+  max-width: 300px;
+  aspect-ratio: 3 / 2;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 1s ease;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.envelope {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 30%;
+}
+
+.bottom-flap,
+.top-flap {
+  width: 140%;
+  height: 120%;
+}
+
+.bottom-flap {
+  background: #e9321e;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  position: absolute;
+  top: -15%;
+  z-index: 1;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;         /* Establece la dirección de los elementos en columna */
+  justify-content: flex-end;      /* Alinea los elementos al final (parte inferior) */
+  padding-bottom: 5px;            /* Ajusta el espaciado desde el fondo */
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  -webkit-box-reflect: below 10px 
+    linear-gradient(to bottom, transparent, rgba(224, 31, 31, 0.2));
+}
+
+.sello {
+  width: 30%;
+  height: 30%;
+  top: 25%;
+  left: 55%;
+  position: absolute;
+  z-index: 6;
+}
+
+.top-flap {
+  background: #94281c;
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%);
+  position: relative;
+  top: 45%;
+  transform-origin: top center;
+  transition: transform 1s ease;
+  z-index: 0;
+  display: none;
+}
+
+.top-flap1 {
+  background: #94281c;
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%);
+  position: absolute;
+  top: -20%;
+  transform-origin: top center;
+  transition: opacity 1s ease;
+  z-index: 3;
+  height: 100%;
+  width: 140%;
+  animation: entrada 2s ease;
+  border: 2px solid red; /* grosor, estilo y color del borde */
+}
+
+.letter {
+  position: absolute;
+  width: 110%;
+  height: 120%;
+  background: white;
+  top: -135%;
+  left: 15%;
+  border-radius: 8px;
+  z-index: 0;
+  transition: transform 1s ease;
+  transform: translateY(100%);
+  overflow: hidden;
+  transition: transform 1s ease;
+  font-size: 10px;
+}
+
+.content {
+  text-align: center;
+  padding: 1em;
+  font-size: 1em;
+  backface-visibility: hidden;
+}
+
+.badge {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.flowers {
+  width: 30%;
+  margin-top: 10px;
+}
+
+/* Media Queries para pantallas muy pequeñas */
+@media (max-width: 500px) {
+  .content {
+    font-size: 0.9em;
+  }
+  .bottom-flap,
+.top-flap {
+  width: 110%;
+  height: 120%;
+  font-size: 9px;
+}
+.top-flap1 {
+  width: 110%;
+  height: 66%;
+  top: -20%;
+}
+.letter {
+  width: 82%;
+}
+.envelope {
+  margin-top: 18%;
+}
+  .sello {
+    width: 30%;
+    height: 30%;
+    top: 12%;
+    left: 35%;
+  }
+}
+@media (max-width: 400px) {
+  .content {
+    font-size: 0.9em;
+  }
+  .bottom-flap,
+.top-flap,
+.top-flap1 {
+  width: 100%;
+}
+.top-flap1 {
+  top: -20%;
+}
+.letter {
+  width: 75%;
+}
+}
